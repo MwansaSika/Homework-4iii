@@ -1,0 +1,388 @@
+
+	#include<iostream>
+#include<string>
+
+using namespace std;
+
+int m = 0, min, k[10], c;
+
+class parkedcar 
+{
+	string make;
+	string color;
+	int model;	
+	string licensenumber;
+	int minutesparked;
+
+	
+public:
+	parkedcar()
+	{
+		make = " ";
+		model = 0;
+		licensenumber = " ";
+		color = " ";
+		minutesparked = 0;
+	}
+
+	void setmake(string mk)
+	{
+		make = mk;
+	}
+
+	void setmodel(int ml)
+	{
+		model = ml;
+	}
+
+	void setcolor(string c)
+	{
+		color = c;
+	}
+
+	void setlicnumber(string l)
+	{
+		licensenumber = l;
+	}
+
+	void setminutesparked(int mnp)
+	{
+		minutesparked = mnp;
+	}
+
+	string getmake() const
+	{
+		return (make);
+	}
+
+	int getmodel() const
+	{
+		return (model);
+	}
+
+	string getcolor() const
+	{
+		return (color);
+	}
+
+	string getlicnumber() const
+	{
+		return (licensenumber);
+	}
+
+	int getminutesparked() const
+	{
+		return (minutesparked);
+	}
+
+	
+};
+
+void parkedcar : rint() 
+{
+	cout << "\nThe make of your car:" << getmake() << endl;
+	cout << "\nThe Model of your car :" << getmodel() << endl;
+	cout << "\nThe Car License Number :" << getlicnumber() << endl;
+	cout << "\nThe Color of the car :" << getcolor() << endl;
+}
+
+
+class parkinticket : public parkedcar 
+	class fine(if any)
+{
+	int fine;
+	int mins;
+	void calfine(); 
+
+public:
+	void showfine();
+	void getticket(int min) 
+	{
+		mins = min;
+		calfine();
+		cout << endl;
+	}
+	int getfine() const
+	{
+		return(fine);
+	}
+};
+
+void parkinticket::calfine() 
+{
+	int fine;
+	int mins;
+
+	if (mins / 60 <= 0)
+	{
+		fine = 45;
+	}
+	else
+	{
+		int mn;
+		mn = mins - 60;
+		fine = 45 + 30 + 30 * (mn / 60);
+	}
+}
+
+void parkinticket::showfine() 
+{
+	cout << " Parked illegally" << endl;
+	cout << " the time of violation is " << mins / 60 << " hours and " << mins % 60 << " minutes " << endl;
+	cout << " Fine is : " << getfine() << endl;
+}
+
+
+parkinticket tck[10]; 
+
+class parkinmeter
+
+	parkinmeter purchased
+{
+	int minutespurchased;
+
+public:
+	parkinmeter()
+	{
+		minutespurchased = 0;
+	}
+	void setminpurchased(int m)
+	{
+		minutesspurchased = m;
+	}
+	int getminpurchased() const
+	{
+		return(minutespurchased);
+	}
+	void print()
+	{
+		cout << "Mins purchased are" << getminpurchased();
+	}
+};
+
+class policeofficer 
+  policeofficer parkinticket
+{ 
+	string name;
+	string badgenumber;
+	parkinticket *ticket; 
+public:
+	policeofficer()
+	{
+		name = " ";
+		badgenumber = " ";
+		ticket = NULL;
+	}	
+	void setbadgenumber(string b)
+	{
+		badgenumber = b;
+	}
+	string getname() const
+	{
+		return(name);
+	}
+	string getbadgenumber() const
+	{
+		return(badgenumber);
+
+	void setname(string n)
+	{
+		name = n;
+	}
+
+	}
+	parkinticket* patrol(parkinticket pc1, parkinmeter pc2) //Patrol
+		function
+	{
+		if (pc1.getminutesparked() < pc2.getminpurchased() ||
+			pc1.getminutesparked() == pc2.getminpurchased())
+		{
+			return NULL; 
+		}
+		else 
+		{
+			tck[m].getticket(pc1.getminutesparked() - pc2.getminpurchased());
+
+			cout << "\n\n" << endl;
+			tck[m].showfine();
+			ticket = &tck[m];
+			return(ticket);
+		}
+	}
+	void print()
+	{
+		cout << "Name: " << getname() << endl;
+		cout << "Officers badge Number: " << getbadgenumber() << endl;
+	}
+};
+
+
+void intro()
+{
+	cout << " Here is the parking sitmulator\n" << endl;
+}
+
+void choice()
+{
+	cin >> c;
+	if (c == 0)
+	{
+		m++;
+	}
+	else if (c == 1)
+	{
+
+	}
+	else
+	{
+		cout << "Wrong entry, could you please try again :" << endl;
+		choice();
+	}
+}
+int main()
+{
+	system("cls");
+	int i = 0, y;
+
+	intro();
+	cout << "The rates for parking are::" << endl;
+	cout << "Parking rate is 25 for 60 minutes" << endl;
+	cout << endl << endl;
+	cout << "The fine rates are ::" << endl;
+	cout << "When you exceed minutes bought a fine will be given/left on your car."<<endl;
+	cout << "\n\n" << endl;
+
+	policeofficer policeofficer;
+
+	string policename, policebadge;
+	cout << "Policeofficer:" << endl;
+	cout << "Name of officer: ";
+	cin >> policename;
+	cout << "Policeofficer Badge Number: ";
+	cin >> policebadge;
+
+	policeofficer.setname(policename);
+	policeofficer.setbadgenumber(policebadge);
+
+
+	parkinmeter meter[10]; 
+	parkinticket* ticket = NULL;
+
+	do 
+	{
+
+		system("cls");
+		intro();
+		cout << "The information to the parked car is:" << endl; 
+
+		string mk;
+
+		cout << "what is the Make of your car :";
+		cin >> mk;
+		tck[m].setmake(mk);
+
+		int mod;
+		cout << "What is the Model of your car :";
+		cin >> mod;
+		tck[m].setmodel(mod);
+
+		string lic;
+		cout << "Please input your License number :";
+		cin >> lic;
+		y = 0;
+		while (y <= m)
+		{
+			if (y != m)
+			{
+				if (lic == tck[y].getlicnumber()) 
+					primary key
+				{
+
+					cout << "\n" << endl;
+				cout << "License Number already exists in the system" << endl;
+				tck[y].print();
+
+				cout << "\n" << endl;
+				cout << "Please re type in your license :";
+				cin >> lic;
+				}
+			}
+			y++;
+		}
+		tck[m].setlicnumber(lic);
+
+		string col;
+		cout << "What is the Color of your car please :";
+		cin >> col;
+		tck[m].setcolor(col);
+
+		int parmin; 
+		cout << "How many Minutes were you parked :";
+		cin >> parmin;
+		tck[m].setminutesparked(parmin);
+
+
+		int purmin; 
+		cout << "How many Minutes you bought:";
+		cin >> purmin;
+		meter[m].setminpurchased(purmin);
+
+		system("cls");
+		intro();
+
+		ticket = officer.patrol(tck[m], meter[m]); 
+		if (ticket == NULL)
+		{
+			tck[m].print();
+			cout <<"\n\n" << endl;
+			cout << "Crime was not commited " << endl;
+			
+		}
+		else
+		{
+			cout << endl << "\nnVechicle not supposed to be parked here:" << endl;
+			ticket->print(); 
+
+			cout << "\n" << endl;
+			ticket = NULL;
+		}
+		k[m] = tck[m].getminutesparked() - meter[m].getminpurchased();
+		cout << endl << endl << endl << endl << endl;
+
+		cout << "\n" << endl;
+		cout << "Please enter what you choose -" << endl;
+		cout << "0 - Patrol another car 1 - View cars patrolled" << endl;
+		choice();
+	} 
+	
+	while (c == 0);
+	system("cls");
+	intro();
+
+	for (i = 0; i <= m; i++)
+	{
+		cout << " Car is parked " << i + 1 << endl << endl;
+		tck[i].print();
+		cout << endl << endl;
+
+		if (k[i]>0)
+		{
+			tck[i].showfine();
+
+			cout << "\n" << endl;
+		}
+		else
+		{
+			cout << "Vehicle permitted for " << -k[i] / 60 << " hours & " << -k[i] % 60 << " minutes"<<endl;
+		}
+
+		cout << "\n" << endl;
+	}
+	cout << "Name of office in charge of this fine is:"<<endl;
+	
+	officer.print();
+
+	cin.get();
+	cin.get();
+	return 0;
+}
